@@ -1,0 +1,155 @@
+/* Ajuste del header */
+.section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    padding-top: 15px;
+    position: sticky;
+    flex-direction: row;
+}
+
+/* Separación entre el header y las secciones */
+.main-content {
+    margin-top: 5px; 
+    padding: 20px;
+    width: 100%;
+}
+
+/* Mantiene el mismo estilo del header */
+.main-content, .section {
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+/* Ajusta los productos dentro de la sección */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Asegura que los productos tengan el mismo tamaño */
+.product {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 220px;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+/* Mantener las imágenes del mismo tamaño */
+.product img {
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px; /* Fija la altura para mantener uniformidad */
+    object-fit: cover;
+}
+
+.discount {
+    background-color: #d9534f;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+
+.button-1 {
+    background-color: #325239;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button-1:hover {
+    background-color: #149429;
+}
+
+/*navegacion productos*/
+.nav-menu1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.nav-menu1 ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu1 li {
+    padding: 10px 20px;
+}
+.button {
+    display: none;
+    cursor: pointer;
+}
+
+.button svg {
+    width: 2em;
+    height: 2em;
+    fill: rgb(13, 13, 13);
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        display: block;
+    }
+
+    .nav-menu3 {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    .nav-menu3.activo {
+        display: flex;
+    }
+
+    .nav-menu3 ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .nav-menu3 li {
+        padding: 15px 0;
+    }
+}

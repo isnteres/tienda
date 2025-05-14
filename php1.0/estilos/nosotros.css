@@ -1,0 +1,94 @@
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+
+    padding: 0;
+
+    text-align: center;
+
+}
+
+
+
+header {
+
+    background-color: #333;
+
+    color: white;
+
+    padding: 20px;
+
+}
+
+
+
+.nosotros {
+
+    padding: 40px;
+
+    max-width: 800px;
+
+    margin: auto;
+
+}
+
+
+
+.nosotros h2 {
+
+    color: #B22222;
+
+}
+
+
+
+.nosotros p, .nosotros ul {
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+}
+
+
+
+.nosotros ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+
+
+.nosotros li::before {
+
+    content: "✔";
+
+    color: #B22222;
+
+    margin-right: 8px;
+
+}
+
+
+
+footer {
+
+    background-color: #333;
+
+    color: white;
+
+    padding: 10px;
+
+    position: relative;
+
+    bottom: 0;
+
+    width: 100%;
+
+}

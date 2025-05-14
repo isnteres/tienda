@@ -1,0 +1,45 @@
+/* Contenedor de los botones */
+.contenedor-botones {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+/* Botones verdes */
+.boton-verde {
+    display: inline-block;
+    background-color: #11c329; /* Color verde */
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px; /* Bordes redondeados */
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-verde:hover {
+    background-color: #ffffff; /* Color más oscuro al pasar el mouse */
+}
+
+/* Tabla de clientes */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
