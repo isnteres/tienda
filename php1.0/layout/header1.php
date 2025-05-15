@@ -30,6 +30,18 @@
                 <li><a href="/tienda/php1.0/productos/todos.php" class="boton">Productos</a></li>
                 <li><a href="/tienda/php1.0/nosotros2.php" class="boton">Nosotros</a></li>
             </ul>
+           
+        </div>
+         <div class="carrito-container">
+    <button id="carrito-btn" class="carrito-icono">🛒</button>
+</div>
+
+<script>
+    document.getElementById("carrito-btn").addEventListener("click", function() {
+        window.location.href = "carrito.php";
+    });
+</script>
+  
            <div class="perfil-container">
                 <button id="perfil-btn" class="perfil-icono">
                                           👤

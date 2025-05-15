@@ -13,6 +13,13 @@ if (!isset($_SESSION['usuario_id'])) {
 
 $id_usuario = $_SESSION['usuario_id'];
 $id_producto = $_POST['producto_id'];
+$verifica = $conexion->prepare("SELECT id FROM productos WHERE id = ?");
+$verifica->bind_param("i", $id_producto);
+$verifica->execute();
+$res = $verifica->get_result();
+if ($res->num_rows == 0) {
+    die("El producto no existe.");
+}
 $cantidad = $_POST['cantidad'] ?? 1;
 
 // Verificar si ya existe en el carrito

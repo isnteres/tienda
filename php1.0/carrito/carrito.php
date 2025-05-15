@@ -47,6 +47,7 @@ $total = 0;
         th, td {
             padding: 12px;
             border-bottom: 1px solid #ddd;
+            text-align: center;
         }
         th {
             background: #eee;
@@ -54,24 +55,50 @@ $total = 0;
         .total {
             font-weight: bold;
         }
+        .acciones {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .acciones form {
+            display: inline;
+        }
     </style>
 </head>
 <body>
     <h2 style="text-align: center;">Carrito de Compras</h2>
+
+    <?php if (isset($_GET['error']) && $_GET['error'] == 'datos_invalidos'): ?>
+        <p style="color:red; text-align:center;">Error: Datos inválidos.</p>
+    <?php endif; ?>
+
     <table>
         <tr>
             <th>Producto</th>
             <th>Precio unitario</th>
             <th>Cantidad</th>
             <th>Subtotal</th>
+            <th>Acciones</th>
         </tr>
 
         <?php while($row = $result->fetch_assoc()): ?>
             <tr>
                 <td><?= htmlspecialchars($row['nombre']) ?></td>
                 <td>S/ <?= number_format($row['precio'], 2) ?></td>
-                <td><?= $row['cantidad'] ?></td>
+                <td>
+                    <form method="POST" action="actualizar.php" onsubmit="this.querySelector('button[type=submit]').disabled = true;">
+                        <input type="hidden" name="item_id" value="<?= $row['id'] ?>">
+                        <input type="number" name="cantidad" class="cantidad-input" value="<?= $row['cantidad'] ?>" min="0">
+                        <button type="submit">Actualizar</button>
+                    </form>
+                </td>
                 <td>S/ <?= number_format($row['subtotal'], 2) ?></td>
+                <td class="acciones">
+                    <form method="GET" action="eliminar.php">
+                        <input type="hidden" name="item_id" value="<?= $row['id'] ?>">
+                        <button type="submit">Eliminar</button>
+                    </form>
+                </td>
             </tr>
             <?php $total += $row['subtotal']; ?>
         <?php endwhile; ?>
@@ -79,7 +106,23 @@ $total = 0;
         <tr>
             <td colspan="3" class="total" style="text-align: right;">Total:</td>
             <td class="total">S/ <?= number_format($total, 2) ?></td>
+            <td>
+                <form method="POST" action="vaciar.php" onsubmit="return confirm('¿Estás seguro de vaciar tu carrito?');">
+                    <button type="submit">Vaciar Carrito</button>
+                </form>
+            </td>
         </tr>
     </table>
+
+    <script>
+    document.querySelectorAll(".cantidad-input").forEach(input => {
+        input.addEventListener("change", () => {
+            if (input.value < 0 || isNaN(input.value)) {
+                alert("Cantidad inválida");
+                input.value = 1;
+            }
+        });
+    });
+    </script>
 </body>
 </html>
