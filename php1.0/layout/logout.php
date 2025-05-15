@@ -1,8 +1,11 @@
 <?php
-session_start();
-session_unset();
 session_destroy();
-header("Location: index.php");
-exit();
 
-?>
+if(headers_sent()){
+    echo "<sript> window.location.href='index.php?vista=home';
+    </script>";
+   
+}else{
+    header("location:index.phph?vista=home");
+    
+}

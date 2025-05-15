@@ -73,4 +73,4 @@
 
 
 
-            <?php require('./layout/footer1.php') ?>
+            <?php require('../layout/footer1.php') ?>
