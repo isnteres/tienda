@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Olvidé mi Contraseña</title>
-    <link rel="stylesheet" href="estilos/recuperar_contraseña.css"> </head>
+    <link rel="stylesheet" href="estilos/recuperar_contraseña.css">
+</head>
 <body>
     <div class="container">
         <h2>Recuperar Contraseña</h2>
