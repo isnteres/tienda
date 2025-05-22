@@ -1,0 +1,106 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor del formulario */
+.container {
+    background-color: #111;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px; /* Tamaño fijo para que los inputs se adapten */
+}
+
+/* Título */
+h2 {
+    color: white;
+    margin: 0;
+    font-size: 22px;
+}
+
+/* Línea decorativa */
+hr {
+    width: 60px;
+    border: 2px solid #00ff00;
+    margin: 10px auto;
+}
+
+/* Campos de entrada */
+.form-group {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Texto informativo */
+.container p { /* Estilo para el párrafo que explica qué hacer */
+    color: #ccc;
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Contenedor de botones */
+.buttons {
+    display: flex;
+    justify-content: space-between; /* Ajustado para que los botones queden en los extremos si son dos */
+    margin-top: 15px;
+    gap: 10px; /* Espacio entre los botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan si hay muchos o si la pantalla es pequeña */
+}
+
+/* Estilos para el botón principal de enviar enlace */
+.reset-password { /* Clase para el botón "Enviar enlace de restablecimiento" */
+    background: #00ff00; /* Color verde vibrante */
+    color: black;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none; /* Asegura que no tenga subrayado si es un 'a' */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho */
+}
+
+/* Estilos para el botón o enlace "Volver al Login" */
+.back-to-login { /* Clase para el enlace "Volver al Login" */
+    background: #555; /* Un gris más oscuro para un botón secundario */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 10px; /* Separación del botón de envío */
+    width: 100%; /* Ocupa todo el ancho */
+    box-sizing: border-box;
+}
+
+/* Efecto hover para los botones */
+.reset-password:hover, .back-to-login:hover {
+    opacity: 0.8;
+}
