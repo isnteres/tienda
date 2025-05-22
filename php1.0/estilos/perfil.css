@@ -28,3 +28,21 @@
 .oculto {
     display: none;
 }
+
+
+
+
+ #modal-carrito {
+    display:none;
+    position:fixed;
+    top:10%;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff;
+    padding:20px;
+    border:1px solid #ccc;
+    max-width:600px;
+    max-height:70vh;
+    overflow:auto;
+    z-index:9999;
+  }

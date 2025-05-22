@@ -1,24 +1,38 @@
 <?php
+session_start();
 
-require_once 'funciones_carrito.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['item_id']) && isset($_POST['cantidad']) && is_numeric($_POST['item_id']) && is_numeric($_POST['cantidad']) && $_POST['cantidad'] >= 0) {
-        $item_id = $_POST['item_id'];
-        $nueva_cantidad = intval($_POST['cantidad']);
-
-        actualizarCantidad($item_id, $nueva_cantidad);
-        header('Location: carrito.php');
-        exit();
-    } else {
-       
-        header('Location: carrito.php?error=datos_invalidos');
-        exit();
-    }
-} else {
-   
-    header('Location: carrito.php');
-    exit();
+if (!isset($_SESSION['usuario_id'])) {
+    die("Debes iniciar sesión.");
 }
 
+$conexion = new mysqli("localhost", "root", "", "fuegoancestral");
+
+if ($conexion->connect_error) {
+    die("Conexión fallida: " . $conexion->connect_error);
+}
+
+$id_usuario = $_SESSION['usuario_id'];
+$item_id = $_POST['item_id'];
+$cantidad = (int) $_POST['cantidad'];
+
+// Validar cantidad
+if ($cantidad < 0) {
+    header("Location: carrito.php?error=cantidad_invalida");
+    exit;
+}
+
+if ($cantidad == 0) {
+    // Eliminar si cantidad = 0
+    $delete = $conexion->prepare("DELETE FROM carrito WHERE id = ? AND id_usuario = ?");
+    $delete->bind_param("ii", $item_id, $id_usuario);
+    $delete->execute();
+} else {
+    // Actualizar si cantidad > 0
+    $update = $conexion->prepare("UPDATE carrito SET cantidad = ? WHERE id = ? AND id_usuario = ?");
+    $update->bind_param("iii", $cantidad, $item_id, $id_usuario);
+    $update->execute();
+}
+
+header("Location: carrito.php");
+exit;
 ?>
