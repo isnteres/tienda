@@ -27,7 +27,7 @@
         <nav class="nav-menu  ">
             <ul>
                 <li><a href="/tienda/php1.0/index2.php" class="boton">Inicio</a></li>
-                <li><a href="/tienda/php1.0/productos/todos.php" class="boton">Productos</a></li>
+                <li><a href="/tienda/php1.0/productos/todos.php" class="boton">Productos</a></li> 
                 <li><a href="/tienda/php1.0/nosotros2.php" class="boton">Nosotros</a></li>
             </ul>
            
