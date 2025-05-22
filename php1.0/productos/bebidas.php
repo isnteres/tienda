@@ -5,7 +5,7 @@
 
 <main>
     <div class="product-container">
-        <!-- Aquí irían los productos de bebidas -->
+        
         <div class="product">
             <img src="../imagenes/americano.jpg" alt="Café Americano" width="150">
             <p>Café Americano</p>
