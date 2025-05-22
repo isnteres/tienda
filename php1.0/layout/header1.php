@@ -32,9 +32,13 @@
         </ul>
     </nav>
 
-    <div class="carrito-container">
-        <button id="carrito-btn" class="carrito-icono">🛒</button>
-    </div>
+   <button id="carrito-btn" class="carrito-icono">🛒</button>
+<script>
+    document.getElementById("carrito-btn").addEventListener("click", function() {
+        location.assign("/tienda/php1.0/carrito.php");
+    });
+</script>
+
 
     <div class="perfil-container">
         <button id="perfil-btn" class="perfil-icono">👤</button>
@@ -47,9 +51,9 @@
 </header>
 
 <script>
-    document.getElementById("carrito-btn").addEventListener("click", function() {
-        window.location.href = "/tienda/php1.0/carrito.php";
-    });
+     //document.getElementById("carrito-btn").addEventListener("click", function() {
+      //  window.location.href = "/tienda/php1.0/carrito.php";
+    //});
 
     document.getElementById("perfil-btn").addEventListener("click", function() {
         const menu = document.getElementById("menu-perfil");

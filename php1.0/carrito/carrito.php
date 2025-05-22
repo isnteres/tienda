@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Verificar si el usuario ha iniciado sesión
 if (!isset($_SESSION['usuario_id'])) {
     die("Debes iniciar sesión para ver tu carrito.");
 }
@@ -14,7 +13,7 @@ if ($conexion->connect_error) {
 
 $id_usuario = $_SESSION['usuario_id'];
 
-// Consulta para obtener los productos del carrito con información del producto
+
 $sql = "SELECT 
             c.id, 
             p.nombre, 
