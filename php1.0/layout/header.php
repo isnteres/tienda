@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fuego Ancestral</title>
-    <link rel="stylesheet" href="estilos/style.css">
-    <link rel="stylesheet" href="estilos/productos.css">
-    <link rel="stylesheet" href="estilos/nosotros.css">
-    <script defer src="js/app.js"></script>
-    <script defer src="js/carrusel.js"></script> 
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/style.css">
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/productos.css">
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/nosotros.css">
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/perfil.css">
+    <script defer src="/tienda/php1.0/js/app.js"></script>
+    <script defer src="/tienda/php1.0/js/carrusel.js"></script> 
     
 </head>
 <body>
 
     <header class="header">
         <div class="img">
-            <img src="imagenes/logofuego.jpeg" alt="logo-fuegoancestral">
+            <img src="/tienda/php1.0/imagenes/logofuego.jpeg" alt="logo-fuegoancestral">
         </div>
         
         <button class="button">
@@ -25,9 +26,9 @@
         </button>
         <nav class="nav-menu  ">
             <ul>
-                <li><a href="index.php" class="boton">Inicio</a></li>
-                <li><a href="productos.php" class="boton">Productos</a></li>
-                <li><a href="nosotros.php" class="boton">Nosotros</a></li>
+                <li><a href="/tienda/php1.0/index.php" class="boton">Inicio</a></li>
+                <li><a href="/tienda/php1.0/productos1/todos.php" class="boton">Productos</a></li> 
+                <li><a href="/tienda/php1.0/nosotros.php" class="boton">Nosotros</a></li>
             </ul>
             <ul class="nav-menu2">
                 <li><a href="inicio.php" class="boton1">Iniciar sesión</a></li>

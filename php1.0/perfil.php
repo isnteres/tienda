@@ -50,13 +50,12 @@ $conn->close();
 </head>
 <body>
     <div class="container">
-        <h2>Bienvenido, <?php echo $usuario['nombre']; ?>!</h2>
+        <h2>Bienvenido, <?php echo $usuario['nombre','apellido']; ?>!</h2>
         <p><strong>Correo:</strong> <?php echo $usuario['email']; ?></p>
         <p><strong>Teléfono:</strong> <?php echo $usuario['telefono']; ?></p>
-        <p><strong>Apellido:</strong> <?php echo $usuario['apellido']; ?></p>
-
+        <
        
-        <a href="cerrar_sesion.php">Cerrar sesión</a>
+        <a href="index.php?vista=logaut">Cerrar sesión</a>
         <a href="index2.php">Inicio</a>
     </div>
 </body>
