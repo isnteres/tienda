@@ -17,7 +17,7 @@
             <div class="form-group">
                 <input type="password" name="contraseña" placeholder="Contraseña" required>
             </div>
-            <a href="#" class="forgot-password">Olvidaste tu contraseña <span>click aquí</span></a>
+            <a href="restablecer.php" class="forgot-password">Olvidaste tu contraseña <span>click aquí</span></a>
             <div class="buttons">
                <input name="btningresar" class="btn" type="submit" value="Login">
                 <a href="registro.php" class="register">Registro</a>
