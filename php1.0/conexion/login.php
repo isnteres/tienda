@@ -25,10 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $usuario = $result->fetch_assoc();
 
-        if (password_verify($contraseña, $usuario['contraseña'])) {
+        if (password_verify($contraseña, $usuario['password'])) {
             $_SESSION['usuario'] = $usuario['email'];
-            header("Location: ../perfil.php");
+            header("Location: ../index2.php");
             exit();
+
 
         } else {
             echo "<script>alert('Contraseña incorrecta'); window.location.href='../inicio.php';</script>";
