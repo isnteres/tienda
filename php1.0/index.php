@@ -10,7 +10,7 @@
             <button class="button prev"></button>
             <button class="button next"></button>
             
-            <!-- Contenedor de Indicadores -->
+            
             <div class="indicators"></div>
         </div>
         

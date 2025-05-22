@@ -31,8 +31,8 @@
                 <li><a href="/tienda/php1.0/nosotros.php" class="boton">Nosotros</a></li>
             </ul>
             <ul class="nav-menu2">
-                <li><a href="inicio.php" class="boton1">Iniciar sesión</a></li>
-                <li><a href="registro.php" class="boton1">Registrarte</a></li>
+                <li><a href="/tienda/php1.0/inicio.php" class="boton1">Iniciar sesión</a></li>
+                <li><a href="/tienda/php1.0/registro.php" class="boton1">Registrarte</a></li>
             </ul>
         </nav>
     </header> 
