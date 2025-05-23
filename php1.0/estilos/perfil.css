@@ -46,3 +46,87 @@
     overflow:auto;
     z-index:9999;
   }
+  /* Icono del carrito */
+.carrito-icono {
+    font-size: 30px;
+    background-color: #ff6347;
+    border: none;
+    color: white;
+    border-radius: 50%;
+    padding: 15px;
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    transition: background 0.3s ease;
+}
+.carrito-icono:hover {
+    background-color: #e5533d;
+}
+
+/* Fondo oscuro del modal */
+#fondo-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998;
+}
+
+/* Contenedor del modal */
+#modal-carrito {
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Botón cerrar */
+#cerrar-modal {
+    float: right;
+    background: #f44336;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+#cerrar-modal:hover {
+    background-color: #d32f2f;
+}
+
+/* Contenido del carrito */
+#carrito-html-generado ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#carrito-html-generado li {
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+#carrito-html-generado li strong {
+    font-size: 18px;
+    color: #222;
+}
+
+#carrito-html-generado p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #333;
+}
