@@ -32,119 +32,144 @@
         </ul>
     </nav>
 
-  <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
-        }
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+    }
 
-        /* Nuevo nombre de clase para el botón del carrito */
-        .btn-carrito-flotante {
-               font-size: 30px;
-               background: none;
-               border: none;
-               color: #ff6347; 
-               padding: 0; 
-               cursor: pointer;
-               position: fixed;
-               top: 40px;
-               right: 70px;
-               z-index: 100;
-               transition: color 0.3s ease;
-        }
+    /* Contenedor fijo para botón y contador */
+    .carrito-flotante-container {
+        position: fixed;
+        top: 40px;
+        right: 70px;
+        z-index: 100;
+        display: inline-block;
+    }
 
-        .btn-carrito-flotante:hover {
-            background-color: #e5533d;
-        }
+    /* Botón del carrito */
+    .btn-carrito-flotante {
+        font-size: 30px;
+        background: none;
+        border: none;
+        color: #ff6347;
+        padding: 0;
+        cursor: pointer;
+        /* No position relative aquí para que no se mueva */
+    }
 
-        /* Fondo del modal */
-        #fondo-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9998;
-        }
+    .btn-carrito-flotante:hover {
+        color: #e5533d;
+    }
 
-        /* Modal */
-        #modal-carrito {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            width: 90%;
-            max-height: 70vh;
-            overflow-y: auto;
-            z-index: 9999;
-            font-family: 'Arial', sans-serif;
-        }
+    /* Contador en el botón */
+    #contador-carrito {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: red;
+        color: white;
+        font-size: 14px;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-weight: bold;
+        user-select: none;
+        transform: translate(50%, -50%);
+        pointer-events: none;
+    }
 
-        #modal-carrito,
-        #modal-carrito * {
-            color: #222 !important;
-        }
+    /* Fondo del modal */
+    #fondo-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9998;
+    }
 
-        /* Botón cerrar */
-        #cerrar-modal {
-            float: right;
-            background: #f44336;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
+    /* Modal */
+    #modal-carrito {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        max-width: 600px;
+        width: 90%;
+        max-height: 70vh;
+        overflow-y: auto;
+        z-index: 9999;
+        font-family: 'Arial', sans-serif;
+        color: #222 !important;
+    }
 
-        /* Contenido del carrito */
-        #contenido-carrito {
-            font-size: 16px;
-        }
+    /* Botón cerrar */
+    #cerrar-modal {
+        float: right;
+        background: #f44336;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+    }
 
-        /* Estilos productos carrito */
-        #carrito-html-generado ul {
-            list-style: none;
-            padding: 0;
-        }
+    /* Contenido del carrito */
+    #contenido-carrito {
+        font-size: 16px;
+    }
 
-        #carrito-html-generado li {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
+    /* Tabla dentro del modal */
+    .tabla-carrito {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 16px;
+    }
 
-        #carrito-html-generado li strong {
-            font-size: 18px;
-            color: #333;
-        }
+    .tabla-carrito th,
+    .tabla-carrito td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
 
-        #carrito-html-generado p {
-            font-size: 16px;
-            color: #333;
-            margin-top: 10px;
-        }
+    .tabla-carrito th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
 
-        #carrito-html-generado hr {
-            border: 0;
-            border-top: 1px solid #ccc;
-            margin: 10px 0;
-        }
-    </style>
+    .tabla-carrito tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+</style>
 
+<?php
+session_start();
+$cantidadTotal = 0;
+if (!empty($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $item) {
+        $cantidadTotal += $item['cantidad'];
+    }
+}
+?>
 
-<!-- Botón del carrito con nueva clase -->
-<button id="carrito-btn" class="btn-carrito-flotante">🛒</button>
+<!-- Contenedor para el botón y el contador -->
+<div class="carrito-flotante-container">
+    <button id="carrito-btn" class="btn-carrito-flotante">🛒</button>
+    <?php if ($cantidadTotal > 0): ?>
+        <span id="contador-carrito"><?= $cantidadTotal ?></span>
+    <?php endif; ?>
+</div>
 
 <!-- Fondo del modal -->
 <div id="fondo-modal"></div>
@@ -175,9 +200,11 @@
 
     if (!empty($_SESSION['carrito'])) {
         $total = 0;
+        $cantidadTotal = 0;
         foreach ($_SESSION['carrito'] as $item) {
             $subtotal = $item['precio'] * $item['cantidad'];
             $total += $subtotal;
+            $cantidadTotal += $item['cantidad'];
             echo "<tr>";
             echo "<td>" . htmlspecialchars($item['id']) . "</td>";
             echo "<td>" . htmlspecialchars($item['nombre']) . "</td>";
@@ -187,6 +214,7 @@
             echo "</tr>";
         }
         echo "</tbody></table><hr>";
+        echo "<p><strong>Total unidades: $cantidadTotal</strong></p>";
         echo "<p><strong>Total: S/ " . number_format($total, 2) . "</strong></p>";
     } else {
         echo "<tr><td colspan='5' style='text-align:center;'>El carrito está vacío.</td></tr>";
@@ -195,30 +223,6 @@
     ?>
 </div>
 
-<style>
-    /* Estilos para la tabla dentro del modal */
-    .tabla-carrito {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 16px;
-    }
-
-    .tabla-carrito th, .tabla-carrito td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .tabla-carrito th {
-        background-color: #f2f2f2;
-        color: #333;
-    }
-
-    .tabla-carrito tbody tr:hover {
-        background-color: #f9f9f9;
-    }
-</style>
-
 <script>
     const btnCarrito = document.getElementById("carrito-btn");
     const modal = document.getElementById("modal-carrito");
@@ -226,18 +230,18 @@
     const contenido = document.getElementById("contenido-carrito");
     const btnCerrar = document.getElementById("cerrar-modal");
 
-    btnCarrito.addEventListener("click", function () {
+    btnCarrito.addEventListener("click", () => {
         modal.style.display = "block";
         fondo.style.display = "block";
         contenido.innerHTML = document.getElementById("carrito-html-generado").innerHTML;
     });
 
-    btnCerrar.addEventListener("click", function () {
+    btnCerrar.addEventListener("click", () => {
         modal.style.display = "none";
         fondo.style.display = "none";
     });
 
-    fondo.addEventListener("click", function () {
+    fondo.addEventListener("click", () => {
         modal.style.display = "none";
         fondo.style.display = "none";
     });
