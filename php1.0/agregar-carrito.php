@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'] ?? '';
     $precio = $_POST['precio'] ?? 0;
 
-    if ($id && $nombre && $precio) {
+    if (is_numeric($id) && $nombre && is_numeric($precio)) {
         $producto = [
             'id' => $id,
             'nombre' => $nombre,
@@ -26,12 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
             }
         }
+
         if (!$encontrado) {
             $_SESSION['carrito'][] = $producto;
         }
     }
 }
 
+// Redirige de vuelta al origen
 $origen = $_GET['origen'] ?? 'index.php';
+
+// Evita inyecciones eliminando caracteres no válidos
+$origen = filter_var($origen, FILTER_SANITIZE_URL);
+
+// Redirección
 header("Location: /tienda/php1.0/$origen");
 exit;

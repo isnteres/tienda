@@ -1,194 +1,64 @@
 <?php require('../layout/header1.php') ?>
 <?php require('../layout/heaproductos.php') ?>
 
-    <main>
-        <div class="product-container">
-    
-            <div class="product">
-                <img src="../imagenes/serrano.jpg" alt="Pan Serranito" width="150">
-                <p>Pan serranito</p>
-                <p class="price">S/ 1.00 x 4u</p>
-                <button class="button-1">Agregar</button>
-            </div>
-    
-            <div class="product">
-                <img src="../imagenes/queso.jpg" alt="Pan con Queso" width="150">
-                <p>Pan con Queso</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/quesoyoregano.png" alt="Pan con Queso y Oregano" width="150">
-                <p>Pan con Queso y Oregano</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/pollohorno.jpg" alt="Pan con Pollo al Horno" width="150">
-                <p>Pan con pollo al horno</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/cabanossiyqueso.png" alt="Pan con Cabanossi y Queso" width="150">
-                <p>Pan con Cabanossi y Queso</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/jamon.jpg" alt="Pan con Cabanossi y Jamon" width="150">
-                <p>Pan con Cabanossi y Jamon</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/chocolate.jpg" alt="Pan con Chocolate y Pecanas" width="150">
-                <p>Pan con Chocolate y Pecana</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/manjar.jpg" alt="Pan con Manjar" width="150">
-                <p>Pan con Manjar</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/huachana.jpg" alt="Pan con Salchicha Huachana" width="150">
-                <p>Pan con Salchicha huachana</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/pizza.jpg" alt="Mini Pizza Americanas" width="150">
-                <p>Mini Pizza Americana</p>
-                <p class="price">S/ 5.00</p>
-                <button class="button-1">Agregar</button>
-            </div>
-             <div class="product">
-            <img src="../imagenes/americano.jpg" alt="Café Americano" width="150">
-            <p>Café Americano</p>
-            <p class="price">S/ 3.00</p>
-            <button class="button-1">Agregar</button>
-        </div>
+<main>
+    <div class="product-container">
 
+<?php
+$productos = [
+    ["Pan serranito", "serrano.jpg", 1.00],
+    ["Pan con Queso", "queso.jpg", 2.50],
+    ["Pan con Queso y Oregano", "quesoyoregano.png", 2.50],
+    ["Pan con pollo al horno", "pollohorno.jpg", 2.50],
+    ["Pan con Cabanossi y Queso", "cabanossiyqueso.png", 2.50],
+    ["Pan con Cabanossi y Jamon", "jamon.jpg", 2.50],
+    ["Pan con Chocolate y Pecana", "chocolate.jpg", 2.50],
+    ["Pan con Manjar", "manjar.jpg", 2.50],
+    ["Pan con Salchicha huachana", "huachana.jpg", 2.50],
+    ["Mini Pizza Americana", "pizza.jpg", 5.00],
+    ["Café Americano", "americano.jpg", 3.00],
+    ["Chocolate Caliente", "chocolatecaliente.jpg", 3.50],
+    ["Cafe con Canela", "Café_canela.jpg", 3.50],
+    ["Cafe con vainilla", "cafe_vainilla.jpg", 3.50],
+    ["Té Verde", "te_verde.jpg", 2.50],
+    ["Manzanilla", "Manzanilla.jpg", 1.50],
+    ["Hierba Luisa", "Hierba Luisa.png", 2.00],
+    ["Emoliente", "Emoliente caliente.jpg", 3.50],
+    ["Pan con chicharrón", "chichalon.jpg", 13.00],
+    ["Chicharrón 1/4", "chichalon2.jpg", 25.00],
+    ["Chicharrón 1 Kilo", "1kilo.jpg", 90.00],
+    ["Tamal", "tamal.jpg", 10.00],
+    ["Jugo de Papaya", "papaya.jpg", 2.50],
+    ["Jugo de Piña", "piña.jpg", 2.50],
+    ["Jugo de Naranja", "naranja.png", 2.50],
+    ["Jugo de Fresa con Leche", "fresa2.jpg", 2.50],
+    ["Jugo de Platano con Leche", "banana.jpg", 2.50],
+    ["Jugo Surtido", "sur.png", 2.50],
+];
+
+$id = 1;
+foreach ($productos as $producto) {
+    $nombre = $producto[0];
+    $imagen = $producto[1];
+    $precio = $producto[2];
+    echo '
         <div class="product">
-            <img src="../imagenes/chocolatecaliente.jpg" alt="Chocolate Caliente" width="150">
-            <p>Chocolate Caliente</p>
-            <p class="price">S/ 3.50</p>
-            <button class="button-1">Agregar</button>
+            <img src="../imagenes/' . $imagen . '" alt="' . $nombre . '" width="150">
+            <p>' . $nombre . '</p>
+            <p class="price">S/ ' . number_format($precio, 2) . '</p>
+            <form method="POST" action="../agregar_carrito.php?origen=productos/todos.php">
+                <input type="hidden" name="id" value="' . $id . '">
+                <input type="hidden" name="nombre" value="' . $nombre . '">
+                <input type="hidden" name="precio" value="' . $precio . '">
+                <button type="submit" class="button-1">Agregar</button>
+            </form>
         </div>
+    ';
+    $id++;
+}
+?>
 
-        <div class="product">
-            <img src="../imagenes/Café_canela.jpg" alt="Cafe_Canela" width="150">
-            <p>Cafe con Canela</p>
-            <p class="price">S/ 3.50</p>
-            <button class="button-1">Agregar</button>
-        </div>
+    </div>
+</main>
 
-        <div class="product">
-            <img src="../imagenes/cafe_vainilla.jpg" alt="cafe_vainilla" width="150">
-            <p>Cafe con vainilla</p>
-            <p class="price">S/ 3.50</p>
-            <button class="button-1">Agregar</button>
-        </div>
-
-        <div class="product">
-            <img src="../imagenes/te_verde.jpg" alt="Té Verde" width="150">
-            <p>Té Verde</p>
-            <p class="price">S/ 2.50</p>
-            <button class="button-1">Agregar</button>
-        </div>
-
-        <div class="product">
-            <img src="../imagenes/Manzanilla.jpg" alt="Manzanilla" width="150">
-            <p>Manzanilla</p>
-            <p class="price">S/ 1.50</p>
-            <button class="button-1">Agregar</button>
-        </div>
-
-        <div class="product">
-            <img src="../imagenes/Hierba Luisa.png" alt="Hierba Luisa" width="150">
-            <p>Hierba Luisa</p>
-            <p class="price">S/ 2.00</p>
-            <button class="button-1">Agregar</button>
-        </div>
-
-        <div class="product">
-            <img src="../imagenes/Emoliente caliente.jpg" alt="Emoliente_Caliente" width="150">
-            <p>Emoliente</p>
-            <p class="price">S/ 3.50</p>
-            <button class="button-1">Agregar</button>
-        </div>
-        <div class="product">
-                <img src="../imagenes/chichalon.jpg" alt="Pan con chicharrón" width="150">
-                <p>Pan con chicharrón</p>
-                <p class="price">S/ 13.00</p>
-                <button class="button-1">Agregar</button>
-            </div>
-    
-            <div class="product">
-                <img src="../imagenes/chichalon2.jpg" alt="Chicharrón" width="150">
-                <p>Chicharrón 1/4</p>
-                <p class="price">S/ 25.00</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/1kilo.jpg" alt="Chicharrón" width="150">
-                <p>Chicharrón 1 Kilo</p>
-                <p class="price">S/ 90.00</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/tamal.jpg" alt="Tamal" width="150">
-                <p>Tamal</p>
-                <p class="price">S/ 10.00</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            
-            <div class="product">
-                <img src="../imagenes/papaya.jpg" alt="Papaya" width="150">
-                <p>Jugo de Papaya</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-    
-            <div class="product">
-                <img src="../imagenes/piña.jpg" alt="Piña" width="150">
-                <p>Jugo de Piña</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/naranja.png" alt="Naranja" width="150">
-                <p>Jugo de Naranja</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/fresa2.jpg" alt="Fresa con Leche" width="150">
-                <p>Jugo de Fresa con Leche</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/banana.jpg" alt="Platano con Leche" width="150">
-                <p>Jugo de Platano con Leche</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-            <div class="product">
-                <img src="../imagenes/sur.png" alt="Surtido" width="150">
-                <p>Jugo Surtido</p>
-                <p class="price">S/ 2.50</p>
-                <button class="button-1">Agregar</button>
-            </div>
-
-        
-        </div>
-
-    </main>
-
-
-
-            <?php require('../layout/footer1.php') ?>
+<?php require('../layout/footer1.php') ?>

@@ -1,3 +1,78 @@
+.perfil-contenedor {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 30px 25px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.perfil-contenedor h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+.perfil-info p {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+}
+
+.perfil-info strong {
+    color: #555;
+    width: 140px;
+    display: inline-block;
+}
+
+.perfil-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none;
+    border: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn:first-child {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.btn:first-child:hover {
+    background-color: #e74c3c;
+}
+
+.btn:last-child {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn:last-child:hover {
+    background-color: #2980b9;
+}
+
+
 .perfil-container {
     position: relative;
     display: inline-block;
@@ -8,28 +83,51 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
+    color: #333;
+    padding: 6px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
 }
 
+.perfil-icono:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* MENÚ DESPLEGABLE PROFESIONAL */
 .menu-perfil {
-     position: absolute;
+    position: absolute;
     top: 100%;
     right: 0;
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 10px;
+    background-color: #fff;
+    padding: 14px 18px;
     display: flex;
-    flex-direction: column; 
-    gap: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    border-radius: 5px;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
     z-index: 1000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 200px;
 }
 
+.menu-perfil a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+    font-weight: 500;
+}
+
+.menu-perfil a:hover {
+    background-color: #ffece6;
+    color: #c0392b;
+}
+
+/* PARA OCULTAR/MOSTRAR EL MENÚ */
 .oculto {
     display: none;
 }
-
-
 
 
  #modal-carrito {
