@@ -26,10 +26,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $result->fetch_assoc();
 
         if (password_verify($contraseña, $usuario['password'])) {
+            // Guardar id y email en sesión
+            $_SESSION['id'] = $usuario['id'];
             $_SESSION['usuario'] = $usuario['email'];
+            
             header("Location: ../index2.php");
             exit();
-
 
         } else {
             echo "<script>alert('Contraseña incorrecta'); window.location.href='../inicio.php';</script>";

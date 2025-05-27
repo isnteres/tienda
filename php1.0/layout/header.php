@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fuego Ancestral</title>
-    <link rel="stylesheet" href="/tienda/php1.0/estilos/style.css">
+        <link rel="stylesheet" href="/tienda/php1.0/estilos/style.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/productos.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/nosotros.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/perfil.css">
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/carrito.css">
+
     <script defer src="/tienda/php1.0/js/app.js"></script>
     <script defer src="/tienda/php1.0/js/carrusel.js"></script> 
     

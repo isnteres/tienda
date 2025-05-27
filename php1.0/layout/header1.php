@@ -108,7 +108,7 @@ if (!empty($_SESSION['carrito'])) {
         <button id="perfil-btn" class="perfil-icono">👤</button>
         <div id="menu-perfil" class="menu-perfil oculto">
             <a href="/tienda/php1.0/perfil.php">Perfil</a>
-            <a href="#">Reservas</a>
+            <a href="/tienda/php1.0/mis_compras.php">Reservas</a>
             <a href="/tienda/php1.0/index.php?vista=logaut">Cerrar sesión</a>
         </div>
     </div>

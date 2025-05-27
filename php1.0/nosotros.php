@@ -1,12 +1,12 @@
-<?php require('./layout/header.php') ?>
-    <div class="medio">
-     <main class="medio">
+<?php require('./layout/header.php'); ?>
+
+<main class="medio">
     <section class="nosotros">
 
         <div class="contenido">
             <h2>Sobre Fuego Ancestral</h2>
             <p>
-                En <strong>Fuego Ancestral</strong>, somos una panadería artesanal dedicada a mantener viva la esencia de la tradición. Cada uno de nuestros productos es elaborado con ingredientes naturales, siguiendo procesos ancestrales que respetan el sabor auténtico del pan de siempre.
+                En <b> Fuego Ancestral</b>, somos una panadería artesanal dedicada a mantener viva la esencia de la tradición. Cada uno de nuestros productos es elaborado con ingredientes naturales, siguiendo procesos ancestrales que respetan el sabor auténtico del pan de siempre.
             </p>
 
             <h2>Nuestra Misión</h2>
@@ -30,7 +30,7 @@
 
         <aside class="ubicacion">
             <h2>Encuéntranos</h2>
-            <p><strong>Dirección:</strong> Carretera Panamericana Sur Km 67, Chilca 15870, Lima - Perú</p>
+            <p><b>Dirección:</b> Carretera Panamericana Sur Km 67, Chilca 15870, Lima - Perú</p>
             <iframe class="mapa" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6363.487082578522!2d-76.71951939579449!3d-12.541021324645195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910577e6f752aa9f%3A0xa5a8cbb7b18f0b54!2sPANADERIA%20%26%20CHICHARRONERIA%20%22TO%C3%91ITO%20ALEXANDER%22!5e0!3m2!1ses-419!2spe!4v1743685126418!5m2!1ses-419!2spe" 
                 width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
@@ -38,6 +38,5 @@
 
     </section>
 </main>
-    </div>
-    
-    <?php require('./layout/footer.php') ?>
+
+<?php require('./layout/footer.php'); ?>
