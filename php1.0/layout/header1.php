@@ -1,18 +1,34 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$cantidadTotal = 0;
+if (!empty($_SESSION['carrito'])) {
+    foreach ($_SESSION['carrito'] as $item) {
+        $cantidadTotal += $item['cantidad'];
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Fuego Ancestral</title>
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="/tienda/php1.0/estilos/style.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/productos.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/nosotros.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/perfil.css">
+    <link rel="stylesheet" href="/tienda/php1.0/estilos/carrito.css">
+
+    <!-- Scripts -->
     <script defer src="/tienda/php1.0/js/app.js"></script>
     <script defer src="/tienda/php1.0/js/carrusel.js"></script> 
-    
 </head>
 <body>
+    <div class="wrapper">
 <header class="header">
     <div class="img">
         <img src="/tienda/php1.0/imagenes/logofuego.jpeg" alt="logo-fuegoancestral">
@@ -32,197 +48,73 @@
         </ul>
     </nav>
 
- <style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-    }
+    <!-- Carrito flotante -->
+    <div class="carrito-flotante-container">
+        <button id="carrito-btn" class="btn-carrito-flotante">🛒</button>
+        <?php if ($cantidadTotal > 0): ?>
+            <span id="contador-carrito"><?= $cantidadTotal ?></span>
+        <?php endif; ?>
+    </div>
 
-    /* Contenedor fijo para botón y contador */
-    .carrito-flotante-container {
-        position: fixed;
-        top: 40px;
-        right: 70px;
-        z-index: 100;
-        display: inline-block;
-    }
+    <!-- Modal fondo y contenido -->
+    <div id="fondo-modal"></div>
+    <div id="modal-carrito">
+        <button id="cerrar-modal">Cerrar</button>
+        <div id="contenido-carrito">Cargando...</div>
+        <br>
+        <a href="/tienda/php1.0/carrito.php" style="display:block; margin-top:10px; text-align:center;">Ver carrito completo</a>
+    </div>
 
-    /* Botón del carrito */
-    .btn-carrito-flotante {
-        font-size: 30px;
-        background: none;
-        border: none;
-        color: #ff6347;
-        padding: 0;
-        cursor: pointer;
-        /* No position relative aquí para que no se mueva */
-    }
+    <!-- Contenido generado por PHP para inyectar -->
+    <div id="carrito-html-generado" style="display:none;">
+        <h3>Tu carrito</h3>
+        <table class="tabla-carrito">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de producto</th>
+                    <th>Precio (S/)</th>
+                    <th>Cantidad</th>
+                    <th>Subtotal (S/)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (!empty($_SESSION['carrito'])) {
+                    $total = 0;
+                    foreach ($_SESSION['carrito'] as $item) {
+                        $subtotal = $item['precio'] * $item['cantidad'];
+                        $total += $subtotal;
+                        echo "<tr>";
+                        echo "<td>" . htmlspecialchars($item['id']) . "</td>";
+                        echo "<td>" . htmlspecialchars($item['nombre']) . "</td>";
+                        echo "<td>" . number_format($item['precio'], 2) . "</td>";
+                        echo "<td>" . intval($item['cantidad']) . "</td>";
+                        echo "<td>" . number_format($subtotal, 2) . "</td>";
+                        echo "</tr>";
+                    }
+                    echo "</tbody></table><hr>";
+                    echo "<p><strong>Total unidades: $cantidadTotal</strong></p>";
+                    echo "<p><strong>Total: S/ " . number_format($total, 2) . "</strong></p>";
+                } else {
+                    echo "<tr><td colspan='5' style='text-align:center;'>El carrito está vacío.</td></tr>";
+                    echo "</tbody></table>";
+                }
+                ?>
+    </div>
 
-    .btn-carrito-flotante:hover {
-        color: #e5533d;
-    }
+    <!-- Perfil -->
+    <div class="perfil-container">
+        <button id="perfil-btn" class="perfil-icono">👤</button>
+        <div id="menu-perfil" class="menu-perfil oculto">
+            <a href="/tienda/php1.0/perfil.php">Perfil</a>
+            <a href="#">Reservas</a>
+            <a href="/tienda/php1.0/index.php?vista=logaut">Cerrar sesión</a>
+        </div>
+    </div>
+</header>
 
-    /* Contador en el botón */
-    #contador-carrito {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background: red;
-        color: white;
-        font-size: 14px;
-        border-radius: 50%;
-        padding: 2px 6px;
-        font-weight: bold;
-        user-select: none;
-        transform: translate(50%, -50%);
-        pointer-events: none;
-    }
-
-    /* Fondo del modal */
-    #fondo-modal {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 9998;
-    }
-
-    /* Modal */
-    #modal-carrito {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        max-width: 600px;
-        width: 90%;
-        max-height: 70vh;
-        overflow-y: auto;
-        z-index: 9999;
-        font-family: 'Arial', sans-serif;
-        color: #222 !important;
-    }
-
-    /* Botón cerrar */
-    #cerrar-modal {
-        float: right;
-        background: #f44336;
-        color: white;
-        border: none;
-        padding: 5px 10px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-    }
-
-    /* Contenido del carrito */
-    #contenido-carrito {
-        font-size: 16px;
-    }
-
-    /* Tabla dentro del modal */
-    .tabla-carrito {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 16px;
-    }
-
-    .tabla-carrito th,
-    .tabla-carrito td {
-        border: 1px solid #ddd;
-        padding: 8px;
-        text-align: center;
-    }
-
-    .tabla-carrito th {
-        background-color: #f2f2f2;
-        color: #333;
-    }
-
-    .tabla-carrito tbody tr:hover {
-        background-color: #f9f9f9;
-    }
-</style>
-
-<?php
-session_start();
-$cantidadTotal = 0;
-if (!empty($_SESSION['carrito'])) {
-    foreach ($_SESSION['carrito'] as $item) {
-        $cantidadTotal += $item['cantidad'];
-    }
-}
-?>
-
-<!-- Contenedor para el botón y el contador -->
-<div class="carrito-flotante-container">
-    <button id="carrito-btn" class="btn-carrito-flotante">🛒</button>
-    <?php if ($cantidadTotal > 0): ?>
-        <span id="contador-carrito"><?= $cantidadTotal ?></span>
-    <?php endif; ?>
-</div>
-
-<!-- Fondo del modal -->
-<div id="fondo-modal"></div>
-
-<!-- Modal del carrito -->
-<div id="modal-carrito">
-    <button id="cerrar-modal">Cerrar</button>
-    <div id="contenido-carrito">Cargando...</div>
-    <br>
-    <a href="#" style="display:block; margin-top:10px; text-align:center;">Ver carrito completo</a>
-</div>
-
-<!-- Contenido generado desde PHP (oculto) -->
-<div id="carrito-html-generado" style="display:none;">
-    <h3>Tu carrito</h3>
-    <?php
-    echo "<table class='tabla-carrito'>";
-    echo "<thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre de producto</th>
-                <th>Precio (S/)</th>
-                <th>Cantidad</th>
-                <th>Subtotal (S/)</th>
-            </tr>
-          </thead>";
-    echo "<tbody>";
-
-    if (!empty($_SESSION['carrito'])) {
-        $total = 0;
-        $cantidadTotal = 0;
-        foreach ($_SESSION['carrito'] as $item) {
-            $subtotal = $item['precio'] * $item['cantidad'];
-            $total += $subtotal;
-            $cantidadTotal += $item['cantidad'];
-            echo "<tr>";
-            echo "<td>" . htmlspecialchars($item['id']) . "</td>";
-            echo "<td>" . htmlspecialchars($item['nombre']) . "</td>";
-            echo "<td>" . number_format($item['precio'], 2) . "</td>";
-            echo "<td>" . intval($item['cantidad']) . "</td>";
-            echo "<td>" . number_format($subtotal, 2) . "</td>";
-            echo "</tr>";
-        }
-        echo "</tbody></table><hr>";
-        echo "<p><strong>Total unidades: $cantidadTotal</strong></p>";
-        echo "<p><strong>Total: S/ " . number_format($total, 2) . "</strong></p>";
-    } else {
-        echo "<tr><td colspan='5' style='text-align:center;'>El carrito está vacío.</td></tr>";
-        echo "</tbody></table>";
-    }
-    ?>
-</div>
-
+<!-- JS para funcionalidad del carrito y perfil -->
 <script>
     const btnCarrito = document.getElementById("carrito-btn");
     const modal = document.getElementById("modal-carrito");
@@ -236,39 +128,21 @@ if (!empty($_SESSION['carrito'])) {
         contenido.innerHTML = document.getElementById("carrito-html-generado").innerHTML;
     });
 
-    btnCerrar.addEventListener("click", () => {
+    const cerrarModal = () => {
         modal.style.display = "none";
         fondo.style.display = "none";
+    }
+
+    btnCerrar.addEventListener("click", cerrarModal);
+    fondo.addEventListener("click", cerrarModal);
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") cerrarModal();
     });
 
-    fondo.addEventListener("click", () => {
-        modal.style.display = "none";
-        fondo.style.display = "none";
-    });
-</script>
-
-
-
-
-
-
-    <div class="perfil-container">
-        <button id="perfil-btn" class="perfil-icono">👤</button>
-        <div id="menu-perfil" class="menu-perfil oculto">
-            <a href="/tienda/php1.0/perfil.php">Perfil</a>
-            <a href="#">Reservas</a>
-            <a href="/tienda/php1.0/index.php?vista=logaut">Cerrar sesión</a>
-        </div>
-    </div>
-</header>
-
-<script>
-     //document.getElementById("carrito-btn").addEventListener("click", function() {
-      //  window.location.href = "/tienda/php1.0/carrito.php";
-    //});
-
-    document.getElementById("perfil-btn").addEventListener("click", function() {
-        const menu = document.getElementById("menu-perfil");
-        menu.classList.toggle("oculto");
+    document.getElementById("perfil-btn").addEventListener("click", () => {
+        document.getElementById("menu-perfil").classList.toggle("oculto");
     });
 </script>
+</div>
+</body>
+</html>

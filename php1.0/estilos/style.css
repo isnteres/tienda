@@ -39,17 +39,14 @@ html, body, section{
     margin-right: 20px;
 }
 
-/*pagina central*/
-.main{
+.main {
     background-color: #fffbfb;
-    color: white;
+    color: #222; /* o #333 */
     text-align: center;
     padding: 1rem;
     flex-grow: 1;
- 
-     
-
 }
+
 
 /* Navegación */
 .nav-menu {

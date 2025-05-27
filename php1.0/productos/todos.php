@@ -1,5 +1,7 @@
-<?php require('../layout/header1.php') ?>
-<?php require('../layout/heaproductos.php') ?>
+<?php 
+require('../layout/header1.php');
+require('../layout/heaproductos.php');
+?>
 
 <main>
     <div class="product-container">
@@ -38,18 +40,19 @@ $productos = [
 
 $id = 1;
 foreach ($productos as $producto) {
-    $nombre = $producto[0];
-    $imagen = $producto[1];
-    $precio = $producto[2];
+    $nombre = htmlspecialchars($producto[0]);
+    $imagen = htmlspecialchars($producto[1]);
+    $precio = number_format($producto[2], 2);
     echo '
         <div class="product">
             <img src="../imagenes/' . $imagen . '" alt="' . $nombre . '" width="150">
             <p>' . $nombre . '</p>
-            <p class="price">S/ ' . number_format($precio, 2) . '</p>
-            <form method="POST" action="../agregar_carrito.php?origen=productos/todos.php">
+            <p class="price">S/ ' . $precio . '</p>
+            <form method="POST" action="../agregar_carrito.php">
                 <input type="hidden" name="id" value="' . $id . '">
                 <input type="hidden" name="nombre" value="' . $nombre . '">
-                <input type="hidden" name="precio" value="' . $precio . '">
+                <input type="hidden" name="precio" value="' . $producto[2] . '">
+                <input type="hidden" name="origen" value="' . htmlspecialchars($_SERVER['REQUEST_URI']) . '">
                 <button type="submit" class="button-1">Agregar</button>
             </form>
         </div>
@@ -61,4 +64,4 @@ foreach ($productos as $producto) {
     </div>
 </main>
 
-<?php require('../layout/footer1.php') ?>
+<?php require('../layout/footer1.php'); ?>

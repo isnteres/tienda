@@ -31,3 +31,5 @@ document.getElementById("fondo-modal").addEventListener("click", function() {
     document.getElementById("carrito-modal").style.display = "none";
     document.getElementById("fondo-modal").style.display = "none";
 });
+
+
