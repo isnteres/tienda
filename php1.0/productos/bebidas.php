@@ -13,14 +13,14 @@ if (!empty($_SESSION['carrito'])) {
 }
 
 $productos = [
-    ["id" => 1, "nombre" => "Café Americano", "precio" => 3.00, "imagen" => "../imagenes/americano.jpg"],
-    ["id" => 2, "nombre" => "Chocolate Caliente", "precio" => 3.50, "imagen" => "../imagenes/chocolatecaliente.jpg"],
-    ["id" => 3, "nombre" => "Cafe con Canela", "precio" => 3.50, "imagen" => "../imagenes/Café_canela.jpg"],
-    ["id" => 4, "nombre" => "Cafe con Vainilla", "precio" => 3.50, "imagen" => "../imagenes/cafe_vainilla.jpg"],
-    ["id" => 5, "nombre" => "Té Verde", "precio" => 2.50, "imagen" => "../imagenes/te_verde.jpg"],
-    ["id" => 6, "nombre" => "Manzanilla", "precio" => 1.50, "imagen" => "../imagenes/Manzanilla.jpg"],
-    ["id" => 7, "nombre" => "Hierba Luisa", "precio" => 2.00, "imagen" => "../imagenes/Hierba Luisa.png"],
-    ["id" => 8, "nombre" => "Emoliente", "precio" => 3.50, "imagen" => "../imagenes/Emoliente caliente.jpg"]
+    ["id" => 21, "nombre" => "Café Americano", "precio" => 3.00, "imagen" => "../imagenes/americano.jpg"],
+    ["id" => 22, "nombre" => "Chocolate Caliente", "precio" => 3.50, "imagen" => "../imagenes/chocolatecaliente.jpg"],
+    ["id" => 23, "nombre" => "Cafe con Canela", "precio" => 3.50, "imagen" => "../imagenes/Café_canela.jpg"],
+    ["id" => 24, "nombre" => "Cafe con Vainilla", "precio" => 3.50, "imagen" => "../imagenes/cafe_vainilla.jpg"],
+    ["id" => 25, "nombre" => "Té Verde", "precio" => 2.50, "imagen" => "../imagenes/te_verde.jpg"],
+    ["id" => 26, "nombre" => "Manzanilla", "precio" => 1.50, "imagen" => "../imagenes/Manzanilla.jpg"],
+    ["id" => 27, "nombre" => "Hierba Luisa", "precio" => 2.00, "imagen" => "../imagenes/Hierba Luisa.png"],
+    ["id" => 28, "nombre" => "Emoliente", "precio" => 3.50, "imagen" => "../imagenes/Emoliente caliente.jpg"]
 ];
 ?>
 

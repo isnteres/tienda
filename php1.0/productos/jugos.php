@@ -13,12 +13,12 @@ if (!empty($_SESSION['carrito'])) {
 }
 
 $productos = [
-    [1, "Papaya", "papaya.jpg", 2.50],
-    [2, "Piña", "piña.jpg", 2.50],
-    [3, "Naranja", "naranja.png", 2.50],
-    [4, "Fresa con Leche", "fresa2.jpg", 2.50],
-    [5, "Platano con Leche", "banana.jpg", 2.50],
-    [6, "Surtido", "sur.png", 2.50],
+    [11, "Papaya", "papaya.jpg", 2.50],
+    [12, "Piña", "piña.jpg", 2.50],
+    [13, "Naranja", "naranja.png", 2.50],
+    [14, "Fresa con Leche", "fresa2.jpg", 2.50],
+    [15, "Platano con Leche", "banana.jpg", 2.50],
+    [16, "Surtido", "sur.png", 2.50],
 ];
 ?>
 

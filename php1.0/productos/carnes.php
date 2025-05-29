@@ -14,10 +14,10 @@ if (!empty($_SESSION['carrito'])) {
 
 $productos = [
    
-    [1, "Pan con chicharrón", "chichalon.jpg", 13.00],
-    [2, "Chicharrón 1/4", "chichalon2.jpg", 25.00],
-    [3, "Chicharrón 1 Kilo", "1kilo.jpg", 90.00],
-    [4, "Tamal", "tamal.jpg", 10.00],
+    [17, "Pan con chicharrón", "chichalon.jpg", 13.00],
+    [18, "Chicharrón 1/4", "chichalon2.jpg", 25.00],
+    [19, "Chicharrón 1 Kilo", "1kilo.jpg", 90.00],
+    [20, "Tamal", "tamal.jpg", 10.00],
 ];
 ?>
 
