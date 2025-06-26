@@ -93,7 +93,7 @@
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-/* MENÚ DESPLEGABLE PROFESIONAL */
+
 .menu-perfil {
     position: absolute;
     top: 100%;
@@ -124,7 +124,7 @@
     color: #c0392b;
 }
 
-/* PARA OCULTAR/MOSTRAR EL MENÚ */
+
 .oculto {
     display: none;
 }
@@ -144,7 +144,7 @@
     overflow:auto;
     z-index:9999;
   }
-  /* Icono del carrito */
+
 .carrito-icono {
     font-size: 30px;
     background-color: #ff6347;
@@ -163,7 +163,7 @@
     background-color: #e5533d;
 }
 
-/* Fondo oscuro del modal */
+
 #fondo-modal {
     display: none;
     position: fixed;
@@ -172,7 +172,7 @@
     z-index: 9998;
 }
 
-/* Contenedor del modal */
+
 #modal-carrito {
     display: none;
     position: fixed;
@@ -190,7 +190,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Botón cerrar */
+
 #cerrar-modal {
     float: right;
     background: #f44336;
@@ -205,7 +205,6 @@
     background-color: #d32f2f;
 }
 
-/* Contenido del carrito */
 #carrito-html-generado ul {
     list-style: none;
     padding: 0;

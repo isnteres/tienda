@@ -1,4 +1,4 @@
-/* Contenedor de los botones */
+
 .contenedor-botones {
     display: flex;
     justify-content: center;
@@ -6,14 +6,14 @@
     margin: 20px 0;
 }
 
-/* Botones verdes */
+
 .boton-verde {
     display: inline-block;
-    background-color: #11c329; /* Color verde */
+    background-color: #11c329; 
     color: rgb(0, 0, 0);
     padding: 10px 20px;
     text-decoration: none;
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 8px; 
     font-weight: bold;
     text-align: center;
     transition: background-color 0.3s ease;
@@ -22,10 +22,10 @@
 }
 
 .boton-verde:hover {
-    background-color: #ffffff; /* Color más oscuro al pasar el mouse */
+    background-color: #ffffff; 
 }
 
-/* Tabla de clientes */
+
 table {
     width: 80%;
     margin: auto;

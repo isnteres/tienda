@@ -1,4 +1,4 @@
-/* Ajuste del header */
+
 .section {
     width: 100%;
     background-color: #ffffff;
@@ -12,14 +12,14 @@
     flex-direction: row;
 }
 
-/* Separación entre el header y las secciones */
+
 .main-content {
     margin-top: 5px; 
     padding: 20px;
     width: 100%;
 }
 
-/* Mantiene el mismo estilo del header */
+
 .main-content, .section {
     background-color: white;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@
 }
 
 
-/* Ajusta los productos dentro de la sección */
+
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +36,7 @@
     padding: 20px;
 }
 
-/* Asegura que los productos tengan el mismo tamaño */
+
 .product {
     border: 1px solid #ddd;
     border-radius: 8px;

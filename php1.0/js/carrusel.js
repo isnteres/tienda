@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const total = images.length;
     const indicatorsContainer = document.querySelector(".indicators");
 
-    // Crear indicadores
+ 
     images.forEach((_, i) => {
         const dot = document.createElement("span");
         dot.classList.add("dot");
@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         images.forEach(img => img.classList.remove("active"));
         images[i].classList.add("active");
 
-        // Actualizar indicadores
         document.querySelectorAll(".dot").forEach(dot => dot.classList.remove("active"));
         document.querySelectorAll(".dot")[i].classList.add("active");
     }
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         showImage(index);
     });
 
-    // Cambio automático cada 3 segundos
+    
     setInterval(function () {
         index = (index === total - 1) ? 0 : index + 1;
         showImage(index);

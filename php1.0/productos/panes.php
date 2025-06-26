@@ -1,10 +1,10 @@
 <?php 
-// Inicia la sesión
+
 session_start();
 require('../layout/header1.php'); 
 require('../layout/heaproductos.php');
 
-// Contador del carrito
+
 define('URI_ACTUAL', htmlspecialchars($_SERVER['REQUEST_URI']));
 $cantidadTotal = 0;
 if (!empty($_SESSION['carrito'])) {

@@ -40,7 +40,7 @@ $productos = [
         <?php endforeach; ?>
     </div>
 
-    <!-- Carrito flotante -->
+   
     <div class="carrito-flotante-container">
         <a href="/tienda/php1.0/carrito.php" class="btn-carrito-flotante">🛒</a>
         <?php if ($cantidadTotal > 0): ?>

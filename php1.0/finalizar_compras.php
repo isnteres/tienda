@@ -33,7 +33,7 @@ if (!$stmtOrden->execute()) {
 $idOrden = $stmtOrden->insert_id;
 $stmtOrden->close();
 
-// Insertar detalles de cada producto
+
 $sqlDetalle = "INSERT INTO detalles_orden (id_orden, id_producto, cantidad, subtotal) VALUES (?, ?, ?, ?)";
 $stmtDetalle = $conn->prepare($sqlDetalle);
 if (!$stmtDetalle) {
@@ -50,9 +50,9 @@ foreach ($carrito as $idProd => $item) {
 
 $stmtDetalle->close();
 
-// Vaciar carrito
+
 unset($_SESSION['carrito']);
 
-// Redirigir a la página de mis compras para ver el historial
+
 header("Location: mis_compras.php");
 exit();

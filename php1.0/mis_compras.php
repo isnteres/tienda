@@ -8,7 +8,7 @@ if (!isset($_SESSION['id'])) {
 
 $idUsuario = $_SESSION['id'];
 
-// Obtener órdenes del usuario
+
 $sql = "SELECT * FROM ordenes WHERE id_usuario = ? ORDER BY fecha DESC";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $idUsuario);
@@ -36,7 +36,7 @@ require './layout/header1.php';
                     </thead>
                     <tbody>
                     <?php
-                    // Obtener detalles de esta orden
+                    
                     $sqlDetalles = "SELECT d.cantidad, d.subtotal, p.nombre 
                                     FROM detalles_orden d 
                                     JOIN productos p ON d.id_producto = p.id 

@@ -48,7 +48,7 @@ $total = 0;
         </table>
         <p><strong>Total a pagar: S/ <?= number_format($total, 2) ?></strong></p>
 
-        <!-- Botón Finalizar Compra -->
+       
        <form method="POST" action="finalizar_compra.php">
     <button type="submit" style="padding:10px 20px; font-size:16px; cursor:pointer;">Finalizar compra</button>
 </form>

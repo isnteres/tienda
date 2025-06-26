@@ -1,4 +1,4 @@
-/* Estilos generales */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #1a1a1a;
@@ -9,31 +9,31 @@ body {
     margin: 0;
 }
 
-/* Contenedor del formulario */
+
 .container {
     background-color: #111;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 350px; /* Tamaño fijo para que los inputs se adapten */
+    width: 350px; 
 }
 
-/* Título */
+
 h2 {
     color: white;
     margin: 0;
     font-size: 22px;
 }
 
-/* Línea decorativa */
+
 hr {
     width: 60px;
     border: 2px solid #00ff00;
     margin: 10px auto;
 }
 
-/* Campos de entrada */
+
 .form-group {
     margin-bottom: 15px;
 }
@@ -50,7 +50,7 @@ input {
     outline: none;
 }
 
-/* Estilos para el enlace de contraseña olvidada */
+
 .forgot-password {
     display: block;
     margin: 10px 0;
@@ -64,16 +64,16 @@ input {
     cursor: pointer;
 }
 
-/* Botones */
+
 .buttons {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
-    gap: 5px; /* Separación de 5px entre los botones */
+    gap: 5px;
 }
 
 button, .buttons a {
-    width: calc(50% - 2.5px); /* Ajuste para que ambos botones queden bien alineados */
+    width: calc(50% - 2.5px); 
     padding: 12px;
     border: none;
     border-radius: 5px;

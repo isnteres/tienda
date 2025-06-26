@@ -41,7 +41,7 @@ html, body, section{
 
 .main {
     background-color: #fffbfb;
-    color: #222; /* o #333 */
+    color: #222; 
     text-align: center;
     padding: 1rem;
     flex-grow: 1;
@@ -208,7 +208,7 @@ footer {
 
 .carousel {
     position: relative; 
-    max-width: 85%; /* Aumentado el ancho */
+    max-width: 85%; 
     height: 90%;  
     margin: auto; 
     overflow: hidden; 
@@ -219,7 +219,7 @@ footer {
 .carousel img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-fit: cover;
     display: none;
     transition: opacity 0.5s ease-in-out;
 }

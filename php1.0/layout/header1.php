@@ -114,7 +114,7 @@ if (!empty($_SESSION['carrito'])) {
     </div>
 </header>
 
-<!-- JS para funcionalidad del carrito y perfil -->
+
 <script>
     const btnCarrito = document.getElementById("carrito-btn");
     const modal = document.getElementById("modal-carrito");
