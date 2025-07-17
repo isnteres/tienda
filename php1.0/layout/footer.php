@@ -4,11 +4,11 @@
 
     <ul class="footer-links">
 
-        <li><a href="index.php">Inicio</a></li>
+        <li><a href="/tienda/php1.0/index.php">Inicio</a></li>
 
-        <li><a href="nosotros.php">Nosotros</a></li>
+        <li><a href="/tienda/php1.0/nosotros.php">Nosotros</a></li>
 
-        <li><a href="productos2.php">Productos</a></li>
+        <li><a href="/tienda/php1.0/productos1/todos.php">Productos</a></li>
 
        
 

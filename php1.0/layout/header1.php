@@ -16,14 +16,13 @@ if (!empty($_SESSION['carrito'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Fuego Ancestral</title>
 
-    <!-- Estilos -->
+   
     <link rel="stylesheet" href="/tienda/php1.0/estilos/style.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/productos.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/nosotros.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/perfil.css">
     <link rel="stylesheet" href="/tienda/php1.0/estilos/carrito.css">
 
-    <!-- Scripts -->
     <script defer src="/tienda/php1.0/js/app.js"></script>
     <script defer src="/tienda/php1.0/js/carrusel.js"></script> 
 </head>
@@ -48,7 +47,7 @@ if (!empty($_SESSION['carrito'])) {
         </ul>
     </nav>
 
-    <!-- Carrito flotante -->
+
     <div class="carrito-flotante-container">
         <button id="carrito-btn" class="btn-carrito-flotante">🛒</button>
         <?php if ($cantidadTotal > 0): ?>
@@ -56,7 +55,7 @@ if (!empty($_SESSION['carrito'])) {
         <?php endif; ?>
     </div>
 
-    <!-- Modal fondo y contenido -->
+    
     <div id="fondo-modal"></div>
     <div id="modal-carrito">
         <button id="cerrar-modal">Cerrar</button>
@@ -65,7 +64,6 @@ if (!empty($_SESSION['carrito'])) {
         <a href="/tienda/php1.0/carrito.php" style="display:block; margin-top:10px; text-align:center;">Ver carrito completo</a>
     </div>
 
-    <!-- Contenido generado por PHP para inyectar -->
     <div id="carrito-html-generado" style="display:none;">
         <h3>Tu carrito</h3>
         <table class="tabla-carrito">
@@ -103,7 +101,7 @@ if (!empty($_SESSION['carrito'])) {
                 ?>
     </div>
 
-    <!-- Perfil -->
+  
     <div class="perfil-container">
         <button id="perfil-btn" class="perfil-icono">👤</button>
         <div id="menu-perfil" class="menu-perfil oculto">
